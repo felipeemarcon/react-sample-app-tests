@@ -15,12 +15,12 @@ export default function App() {
   return (
     <div className={`jade stone flex flex-col md:flex-row content-start ${isSidebarVisible && 'md:pl-[80px] lg:pl-0'}`}>
       <Sidebar visibility={isSidebarVisible} />
-      <div className="flex flex-col w-full relative lg:ml-(--app-sidebar-width-lg)">
+      <div className={`flex flex-col w-full relative ${isSidebarVisible && "lg:ml-(--app-sidebar-width-lg)"} transition-width duration-500 ease-in-out`}>
         <Header containerVariant={containerVariant} />
         <Container variant={containerVariant} className={`@container lg:pb-24`} data-name="main-content">
           <Grid>
             <div className="col-span-full">
-              <SampleTable />
+              <CardContainer variant="outlined"><SampleTable /></CardContainer>
             </div>
             <main className="col-span-full lg:col-span-6 xl:col-span-8 @lg:@max-xl:col-span-full @8xl:col-span-12 flex flex-col gap-4 lg:gap-5 items-start">
               <CardContainer className="w-full" data-name="details">
