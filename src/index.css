@@ -34,7 +34,7 @@
   }
 
   .container-super-wide {
-    max-width: 112rem; /* 1792px */
+    max-width: 112.5rem; /* 1800px */
   }
 
   .container-full {
