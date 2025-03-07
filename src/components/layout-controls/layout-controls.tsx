@@ -5,19 +5,15 @@ import { useState } from "react";
 interface LayoutControlsProps {
   containerVariant: ContainerVariant;
   sidebarVisiblity: boolean;
-  gridVisiblity: boolean;
   onContainerChange: (variant: ContainerVariant) => void;
   onSidebarVisibilityChange: (visibility: boolean) => void;
-  onGridVisibilityChange: (visibility: boolean) => void;
 }
 
 export default function LayoutControls({
   containerVariant,
   sidebarVisiblity,
-  gridVisiblity,
   onContainerChange,
   onSidebarVisibilityChange,
-  onGridVisibilityChange
 }: LayoutControlsProps) {
 
   const containerVariants: ContainerVariant[] = ['default', 'narrow', 'wide', 'super-wide', 'full'];
@@ -33,18 +29,6 @@ export default function LayoutControls({
             name="sidebar-visibility"
             onClick={() => onSidebarVisibilityChange(sidebarVisiblity ? false : true)}
             checked={sidebarVisiblity}
-          />
-        </div>
-
-        <div className="w-[1px] bg-slate-200" />
-
-        <div className="flex gap-2 items-center">
-          <Text weight="medium" color="medium" as="label" htmlFor="grid-visibility">Show Grid?</Text>
-          <Switch
-            id="grid-visibility"
-            name="grid-visibility"
-            onClick={() => onGridVisibilityChange(gridVisiblity ? false : true)}
-            checked={gridVisiblity}
           />
         </div>
 

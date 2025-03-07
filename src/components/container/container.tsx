@@ -22,7 +22,7 @@ export default function Container({ variant = 'default', padding = 'both', child
   }
 
   const containerPaddingClasses = handleContainerPaddings(padding);
-  const classes = classNames(`container-${variant}`, containerPaddingClasses, 'transition-width duration-500 ease-in-out', rest.className);
+  const classes = classNames(`container-${variant}`, containerPaddingClasses, 'transition-width duration-500 ease-in-out relative', rest.className);
 
   return (
     <div className={classes}>
