@@ -1,6 +1,6 @@
-import { ActionButton, DropdownMenu, DropdownMenuItem, Switch, Text } from "@stone-payments/jade";
-import { ContainerVariant } from "../../types";
-import { useState } from "react";
+import { ActionButton, DropdownMenu, DropdownMenuItem, Switch, Text } from '@stone-payments/jade';
+import { useState } from 'react';
+import { ContainerVariant } from '../../types';
 
 interface LayoutControlsProps {
   containerVariant: ContainerVariant;
@@ -15,15 +15,22 @@ export default function LayoutControls({
   onContainerChange,
   onSidebarVisibilityChange,
 }: LayoutControlsProps) {
-
-  const containerVariants: ContainerVariant[] = ['default', 'narrow', 'wide', 'super-wide', 'full'];
+  const containerVariants: ContainerVariant[] = ['default', 'narrow', 'wide', 'full'];
   const [dropdownOpen, toggleDropdownOpen] = useState(false);
 
   return (
-    <div className="w-[calc(100%-256px)] fixed bottom-0 left-[256px] pb-5 flex justify-center z-50">
-      <div className="px-3 py-3 bg-white/50 backdrop-blur-lg border border-slate-200 rounded-2xl flex grow-0 basis-auto items-stretch gap-5 shadow-2xl transition-all duration-500 ease-in-out">
-        <div className="flex gap-2 items-center pl-3">
-          <Text weight="medium" color="medium" as="label" htmlFor="sidebar-visibility">Show Sidebar?</Text>
+    <div className="group fixed bottom-0 z-50 flex w-full translate-y-full justify-center px-2 pb-2 transition-transform duration-200 ease-in-out md:left-(--app-sidebar-width-md) md:w-[calc(100%_-_var(--app-sidebar-width-md))] md:translate-y-0 md:pb-5">
+      <div className="flex grow-0 basis-auto items-stretch justify-center gap-5 rounded-2xl border border-slate-200 bg-white/20 p-3 shadow-2xl backdrop-blur-lg transition-all duration-200 ease-in-out group-hover:translate-y-0 md:w-auto">
+        <div className="flex items-center gap-2 pl-3">
+          <Text
+            weight="medium"
+            color="medium"
+            as="label"
+            htmlFor="sidebar-visibility"
+            className="shrink-0"
+          >
+            Show Sidebar?
+          </Text>
           <Switch
             id="sidebar-visibility"
             name="sidebar-visibility"
@@ -34,18 +41,27 @@ export default function LayoutControls({
 
         <div className="w-[1px] bg-slate-200" />
 
-        <div className="flex gap-2 items-center">
-          <Text weight="medium" color="medium" as="label" htmlFor="container-variant">Container variant:</Text>
+        <div className="flex items-center justify-items-start gap-2">
+          <Text
+            weight="medium"
+            color="medium"
+            as="label"
+            htmlFor="container-variant"
+            className="shrink-0"
+          >
+            Container variant:
+          </Text>
           <DropdownMenu
             open={dropdownOpen}
             toggleOpen={toggleDropdownOpen}
+            portal
             trigger={
               <ActionButton id="container-variant" name="container-variant" dropdownIndicator>
                 {containerVariant.charAt(0).toUpperCase() + containerVariant.slice(1)}
               </ActionButton>
             }
           >
-            {containerVariants.map((variant, index) =>
+            {containerVariants.map((variant, index) => (
               <DropdownMenuItem
                 active={containerVariant === variant}
                 key={`variant-${index}`}
@@ -53,11 +69,12 @@ export default function LayoutControls({
                 onClick={() => {
                   toggleDropdownOpen(false);
                   onContainerChange(variant);
-                }} />
-            )}
+                }}
+              />
+            ))}
           </DropdownMenu>
         </div>
       </div>
     </div>
-  )
+  );
 }

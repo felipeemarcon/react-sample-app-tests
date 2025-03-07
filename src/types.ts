@@ -1,1 +1,1 @@
-export type ContainerVariant = 'narrow' | 'default' | 'wide' | 'super-wide' | 'full';
+export type ContainerVariant = 'narrow' | 'default' | 'wide' | 'full';

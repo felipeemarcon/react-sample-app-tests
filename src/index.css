@@ -9,6 +9,8 @@
 }
 
 @theme {
+  --breakpoint-xl: 75rem; /* 1200px */
+
   --container-8xl: 96rem;
   --app-sidebar-width-md: 5rem;
   --app-sidebar-width-lg: 16rem;
@@ -30,11 +32,7 @@
   }
 
   .container-wide {
-    max-width: 80rem; /* 1280px */
-  }
-
-  .container-super-wide {
-    max-width: 112.5rem; /* 1800px */
+    max-width: 87.5rem; /* 1280px */
   }
 
   .container-full {
