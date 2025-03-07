@@ -1,0 +1,49 @@
+{
+  "root": true,
+  "extends": [
+    "airbnb-base",
+    "airbnb-typescript/base",
+    "plugin:json/recommended",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "plugins": ["json", "prettier"],
+  "parserOptions": {
+    "extraFileExtensions": [".json"],
+    "project": ["./tsconfig.json"]
+  },
+  "rules": {
+    "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
+    "radix": "off",
+    "import/no-extraneous-dependencies": "off",
+    "no-restricted-syntax": "off",
+    "no-console": "off",
+    "import/prefer-default-export": "off",
+    "indent": ["off"],
+    "json/undefined": 1,
+    "json/enum-value-mismatch": 1,
+    "json/unexpected-end-of-comment": 1,
+    "json/unexpected-end-of-string": 1,
+    "json/unexpected-end-of-number": 1,
+    "json/invalid-unicode": 1,
+    "json/invalid-escape-character": 1,
+    "json/invalid-character": 1,
+    "json/property-expected": 1,
+    "json/comma-expected": 1,
+    "json/colon-expected": 1,
+    "json/value-expected": 1,
+    "json/comma-or-close-backet-expected": 1,
+    "json/comma-or-close-brace-expected": 1,
+    "json/trailing-comma": 1,
+    "json/duplicate-key": 1,
+    "json/comment-not-permitted": 1,
+    "json/schema-resolve-error": 1,
+    "no-await-in-loop": "off"
+  },
+  "overrides": [
+    {
+      "files": ["plopfile.js"]
+    }
+  ],
+  "ignorePatterns": ["scripts/*"]
+}
