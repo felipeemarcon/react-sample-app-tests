@@ -1,11 +1,4 @@
-import {
-  ActionButton,
-  DropdownMenu,
-  DropdownMenuItem,
-  Switch,
-  Text,
-  Tooltip,
-} from '@stone-payments/jade';
+import { ActionButton, DropdownMenu, DropdownMenuItem, Switch, Text } from '@stone-payments/jade';
 import classNames from 'classnames';
 import { useState } from 'react';
 import { ContainerVariant } from '../../types';
