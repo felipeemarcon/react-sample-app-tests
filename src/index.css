@@ -1,5 +1,5 @@
 @use 'sass:map';
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   font-synthesis: none;
@@ -11,11 +11,10 @@
 @theme {
   --breakpoint-xl: 75rem; /* 1200px */
 
-  --container-8xl: 96rem;
+  --container-8xl: 96rem; /* 1536px */
   --app-sidebar-width-md: 5rem;
   --app-sidebar-width-lg: 16rem;
 }
-
 
 @layer components {
   [class*='container-'] {
