@@ -16,7 +16,12 @@ export default function LayoutControls({
   onContainerChange,
   onSidebarVisibilityChange,
 }: LayoutControlsProps) {
-  const containerVariants: ContainerVariant[] = ['default', 'narrow', 'wide', 'full'];
+  const containerVariants: { name: ContainerVariant; description: string }[] = [
+    { name: 'default', description: 'Max width: 1024px' },
+    { name: 'narrow', description: 'Max width: 620px' },
+    { name: 'wide', description: 'Max width: 1280px' },
+    { name: 'full', description: 'Max width: 100%' },
+  ];
   const [dropdownOpen, toggleDropdownOpen] = useState(false);
 
   const wrapperClasses = classNames(
@@ -75,13 +80,14 @@ export default function LayoutControls({
           >
             {containerVariants.map((variant, index) => (
               <DropdownMenuItem
-                active={containerVariant === variant}
+                active={containerVariant === variant.name}
                 key={`variant-${index}`}
-                label={variant.charAt(0).toUpperCase() + variant.slice(1)}
+                label={variant.name.charAt(0).toUpperCase() + variant.name.slice(1)}
                 onClick={() => {
                   toggleDropdownOpen(false);
-                  onContainerChange(variant);
+                  onContainerChange(variant.name);
                 }}
+                description={variant.description}
               />
             ))}
           </DropdownMenu>
